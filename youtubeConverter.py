@@ -1,8 +1,8 @@
 import yt_dlp
 
-def download_song(self):
+def download_song(song, artist):
     # Format the search query
-    query = f"{self.song} {self.artist}"
+    query = f"{song} {artist}"
     
     # Set options for yt-dlp
     ydl_opts = {
