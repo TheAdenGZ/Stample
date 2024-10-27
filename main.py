@@ -1,22 +1,30 @@
 from sample_finder import main
 from youtubeConverter import download_song
-from wavelengthAnalysis import 
+from wavelengthAnalysis import load_and_transform
+from wavelengthAnalysis import splice_wav
+import numpy as np
+from scipy.io import wavfile
+from scipy.signal import correlate
+import math
 
+best_similarity = 0
+time1 = 0
+time2 = 0
 name = "Bound 2"
 artist = "Kanye West"
 
-file = download_song(name, artist)
+#file = download_song(name, artist)
 
-main()
+#main()
 
-for i in range(31):
-    for j in range(31):
-        splice_wav("Bound.wav", (i * 5), ((i + 1) * 5), "Sample.wav")
-        splice_wav("Kanye West - Bound 2.wav", (j * 5), ((j + 1) * 5), "Original.wav")
+for i in range(11):
+    for j in range(11):
+        splice_wav("Bound.wav", (i * 15), ((i + 1) * 15), "Sample.wav")
+        splice_wav("Kanye West - Bound 2.wav", (j * 15), ((j + 1) * 15), "Original.wav")
 
         # Load and transform both files
-        sr1, mag1 = load_and_transform('Kanye West - Bound 22.wav')
-        sr2, mag2 = load_and_transform('Bound1.wav')
+        sr1, mag1 = load_and_transform('Original.wav')
+        sr2, mag2 = load_and_transform('Sample.wav')
 
 
         # Compute cross-correlation
@@ -28,13 +36,16 @@ for i in range(31):
         curr_similarity = np.max(corr)
         if curr_similarity > best_similarity:
             best_similarity = curr_similarity
-            time2 = i * 5
-            time1 = j * 5
+            time2 = i * 15
+            time1 = j * 15
 
-print(time1)
-print(time2)
+# Output 1 = "Bound 2 by Kanye West"
+# Output 2 = "Bound by Ponderosa Twins Plus One"
 
+temp1 = ((time1 / 60) - (time1 // 60)) * 60
+temp1 = math.trunc(temp1)
+temp2 = ((time2 / 60) - (time2 // 60)) * 60
+temp2 = math.trunc(temp2)
 
-best_similarity = 0
-time1 = 0
-time2 = 0
+print("Bound 2 by Kanye West " + str((time1 // 60)) + ":" + str(temp1) + "\n") #Output 1
+print("Bound by Ponderosa Twins Plus One " + str((time2 // 60)) + ":" + str(temp2) + "\n") # Output 2
