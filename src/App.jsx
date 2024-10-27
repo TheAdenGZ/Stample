@@ -28,16 +28,16 @@ function App() {
         </a>
       </div>
       <h1>STAMPLE</h1>
-      Input song name here:
+      Input song title:
       <div className="card">
 
        <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} name='input1' />
-      <p>You entered: {input1}</p>
+      <p></p>
         <p>
-          Input artist name here:
+          Input artist:
         </p>
       <input type="text" value={input2} onChange={handleChange} name='input2' />
-      <p>You entered: {input2}</p>
+      <p></p>
       </div>
       <p className="read-the-docs">
         Stample will find the time stamps of samples in music
