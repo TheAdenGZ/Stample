@@ -7,7 +7,7 @@ from scipy.io import wavfile
 from scipy.signal import correlate
 import math
 
-best_similarity = 0 # store best similarity score
+best_similarity = 0 # Store best similarity score
 time1 = 0 # Time stamp for original track
 time2 = 0 # Time stamp for sample track
 name = "Bound 2"
@@ -17,6 +17,7 @@ file = download_song(name, artist)
 
 main()
 
+# Iterate through each 15 second splice of songs
 for i in range(11):
     for j in range(11):
         splice_wav("Bound.wav", (i * 15), ((i + 1) * 15), "Sample.wav")
@@ -29,10 +30,7 @@ for i in range(11):
 
         # Compute cross-correlation
         corr = correlate(mag1, mag2, mode='full', method='fft')
-        # lags = np.arange(-len(mag2) + 1, len(mag1))
-
-        # Find the lag with the maximum correlation
-        # best_lag = lags[np.argmax(corr)]
+        
         curr_similarity = np.max(corr)
         if curr_similarity > best_similarity:
             best_similarity = curr_similarity
