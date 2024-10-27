@@ -31,8 +31,8 @@ def splice_wav(filename, start_time, end_time, output_filename):
 
 for i in range(31):
     for j in range(31):
-        splice_wav("Bound.wav", (i * 5), ((i + 1) * 5), "Bound1.wav")
-        splice_wav("Kanye West - Bound 2.wav", (j * 5), ((j + 1) * 5), "Kanye West - Bound 22.wav")
+        splice_wav("Bound.wav", (i * 5), ((i + 1) * 5), "Sample.wav")
+        splice_wav("Kanye West - Bound 2.wav", (j * 5), ((j + 1) * 5), "Original.wav")
 
         # Load and transform both files
         sr1, mag1 = load_and_transform('Kanye West - Bound 22.wav')
