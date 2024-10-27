@@ -2,7 +2,7 @@ import openai
 import requests
 import re
 
-# Set up your API keys
+
 GENIUS_ACCESS_TOKEN = "___wtySd5Smh8UPQLWwGRkguQjQQ5yZ7ONrrm31ZgK-m3bpc3tYdFtva07KRQHL8"
 openai.api_key = "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"
 
@@ -49,7 +49,7 @@ def get_song_samples(song_id):
             return sampled_data
         else:
             print("No samples found on Genius. Checking with OpenAI...")
-            return None  # Indicate that we should query OpenAI
+            return None  
     else:
         print(f"Error retrieving song samples: {response.status_code}")
         return None
@@ -71,7 +71,7 @@ def query_openai_for_samples(song_name, artist_name):
 def parse_openai_samples(samples_info):
     
     sampled_data = {}
-    # Split the response by line and parse each sample
+    
     lines = samples_info.split('\n')
     for i, line in enumerate(lines, start=1):
         if "by" in line:
@@ -90,11 +90,11 @@ def main():
         sampled_data = get_song_samples(song_id)
         
         if sampled_data:
-            # Print each sampled song and artist as individual variables
+            
             for key, value in sampled_data.items():
                 print(f"{key} = \"{value}\"")
         else:
-            # No samples found on Genius, use OpenAI as a fallback
+            
             sampled_data = query_openai_for_samples(song_name, artist_name)
             print("Samples (from OpenAI):")
             for key, value in sampled_data.items():
