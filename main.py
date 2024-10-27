@@ -7,15 +7,15 @@ from scipy.io import wavfile
 from scipy.signal import correlate
 import math
 
-best_similarity = 0
-time1 = 0
-time2 = 0
+best_similarity = 0 # store best similarity score
+time1 = 0 # Time stamp for original track
+time2 = 0 # Time stamp for sample track
 name = "Bound 2"
 artist = "Kanye West"
 
-#file = download_song(name, artist)
+file = download_song(name, artist)
 
-#main()
+main()
 
 for i in range(11):
     for j in range(11):
@@ -29,10 +29,10 @@ for i in range(11):
 
         # Compute cross-correlation
         corr = correlate(mag1, mag2, mode='full', method='fft')
-        #lags = np.arange(-len(mag2) + 1, len(mag1))
+        # lags = np.arange(-len(mag2) + 1, len(mag1))
 
         # Find the lag with the maximum correlation
-        #best_lag = lags[np.argmax(corr)]
+        # best_lag = lags[np.argmax(corr)]
         curr_similarity = np.max(corr)
         if curr_similarity > best_similarity:
             best_similarity = curr_similarity
@@ -42,6 +42,7 @@ for i in range(11):
 # Output 1 = "Bound 2 by Kanye West"
 # Output 2 = "Bound by Ponderosa Twins Plus One"
 
+# Convert times from seconds to mm:ss format
 temp1 = ((time1 / 60) - (time1 // 60)) * 60
 temp1 = math.trunc(temp1)
 temp2 = ((time2 / 60) - (time2 // 60)) * 60
