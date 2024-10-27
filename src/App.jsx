@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import musicNote from '../public/music_15509.png'
+import Stample from '../public/TheStamp.png'
 import './App.css'
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     <>
       <div>   
         <a href="" target="_blank">
-          <img src={musicNote} className="logo react" alt="React logo" />
+          <img src={Stample} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>STAMPLE</h1>
@@ -35,8 +36,8 @@ function App() {
         <p>
           Input Artist name here
         </p>
-      {/* <input type="text" value={input2} onChange={handleChange} name='input2' />
-      <p>You entered: {input2}</p> */}
+      <input type="text" value={input2} onChange={handleChange} name='input2' />
+      <p>You entered: {input2}</p>
       </div>
       <p className="read-the-docs">
         Stample will find the time stamps of samples in music
