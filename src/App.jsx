@@ -8,17 +8,11 @@ import './App.css'
 function App() {
    const [input1, setInput1] = useState('')
    const [input2, setInput2] = useState('')
+     console.log(input1);
+     console.log(input2);
 
-   const handleChange = (event) => {
-    const { name , value} = event.target;
-
-    
-    if (name === 'input1') {
-      setInput1(value);
-    } else if (name === 'input2') {
-      setInput2(value);
-    }
-  };
+   const [value1, setValue1] = useState('');
+   const [value2, setValue2] = useState(''); 
 
   return (
     <>
@@ -28,6 +22,10 @@ function App() {
         </a>
       </div>
       <h1>STAMPLE</h1>
+<<<<<<< HEAD
+      
+      <div className="card">
+=======
       Input song title:
       <div className="card">
 
@@ -43,13 +41,35 @@ function App() {
         Stample will find the time stamps of samples in music
       </p>
 
+>>>>>>> ee56e5386f4b8fd2836bab032412001341d5e280
       <form action="/action_page.php">
         <label for="fname">Song name:</label><br/>
-        <input type="text" id="fname" name="fname" value=""/><br/>
+        <input type="text"onChange={(e) => setInput1(e.target.value)} id="fname" name="fname" value={input1}/><br/>
         <label for="lname">Artist name:</label><br/>
-        <input type="text" id="lname" name="lname" value=""/><br/><br/>
+        <input type="text" onChange={(e) => setInput2(e.target.value)} id="lname" name="lname" value={input2}/><br/><br/>
         <input type="submit" value="Submit"/>
       </form>
+
+      </div>
+      <p className="read-the-docs">
+       
+      </p>
+      <div>
+        <p>Sample song and artist</p>
+      <input 
+        type="text" 
+        value={value1} 
+        disabled
+        // onChange={e => setValue1(e.target.value)} 
+        // readOnly
+      />
+      <input 
+        type="text" 
+        value={value2} 
+        onChange={e => setValue2(e.target.value)}
+        readOnly 
+      />
+    </div>
     </>
   )
 }
