@@ -38,7 +38,7 @@ function App() {
         <input type="submit" value="Submit"/>
       </form> */}
  <form>
-          <label htmlFor="input1">Orignal Song:</label><br />
+          <label htmlFor="input1">Original Song:</label><br />
           <input
             type="text"
             onChange={(e) => setInput1(e.target.value)}
