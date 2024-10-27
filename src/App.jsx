@@ -22,26 +22,8 @@ function App() {
         </a>
       </div>
       <h1>STAMPLE</h1>
-<<<<<<< HEAD
       
       <div className="card">
-=======
-      Input song title:
-      <div className="card">
-
-       <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} name='input1' />
-      <p></p>
-        <p>
-          Input artist:
-        </p>
-      <input type="text" value={input2} onChange={handleChange} name='input2' />
-      <p></p>
-      </div>
-      <p className="read-the-docs">
-        Stample will find the time stamps of samples in music
-      </p>
-
->>>>>>> ee56e5386f4b8fd2836bab032412001341d5e280
       <form action="/action_page.php">
         <label for="fname">Song name:</label><br/>
         <input type="text"onChange={(e) => setInput1(e.target.value)} id="fname" name="fname" value={input1}/><br/>
